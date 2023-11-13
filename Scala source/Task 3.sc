@@ -1,100 +1,81 @@
-import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.mllib.stat.{MultivariateStatisticalSummary, Statistics}
-import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.SparkContext
 
-object LogAnalysis {
-  def main(args: Array[String]): Unit = {
-    val conf = new SparkConf().setAppName("LogAnalysis")
-    val sc = new SparkContext(conf)
+val sc: SparkContext = // your SparkContext initialization
 
-    // Load log data
-    val data = sc.textFile("test1/FPT-2018-12-02.log")
+val data = sc.textFile("test1/FPT-2018-12-02.log")
 
-    // Function to filter records
-    def filterRecords(line: String): Boolean = {
-      val fields = line.split(" ")
-      val criteria = fields.length == 7 &&
-        fields(0).toDouble >= 0 &&
-        fields(6).forall(Character.isDigit) &&
-        fields(6).toInt > 0 &&
-        fields(2) != "-"
-      criteria
-    }
-
-    // Filter log data
-    val filterData = data.filter(filterRecords)
-
-    // Function to classify service
-    def classifyService(line: String): String = {
-      val contentName = line.split(" ")(5)
-      if (contentName.endsWith(".mpd") || contentName.endsWith(".m3u8")) {
-        "HLS"
-      } else if (contentName.endsWith(".dash") || contentName.endsWith(".ts")) {
-        "MPEG-DASH"
-      } else {
-        "Web Service"
-      }
-    }
-
-    // Classify and count service groups
-    val filteredAndClassifiedData = filterData.map(line => (classifyService(line), 1))
-    val serviceGroupCounts = filteredAndClassifiedData.reduceByKey(_ + _)
-    serviceGroupCounts.collect().foreach { case (serviceGroup, count) =>
-      println(s"$serviceGroup: $count records")
-    }
-
-    // Function to extract IP
-    def extractIP(line: String): String = {
-      val fields = line.split(" ")(1)
-      fields
-    }
-
-    // Get unique IPs
-    val uniqueIPs = filterData.map(extractIP).distinct()
-
-    // Load IP information
-    val ipInfoData = sc.textFile("test1/IPDict.csv")
-    val ipInfoMap = ipInfoData.map(line => {
-      val fields = line.split(",")
-      (fields(0), (fields(1), fields(2), fields(3)))
-    }).collectAsMap()
-    val ipInfoBroadcast = sc.broadcast(ipInfoMap)
-
-    // Function to enrich log record
-    def enrichLogRecord(line: String): (String, (String, String, String), String, Double, String, Long) = {
-      val fields = line.split(" ")
-      val ip = fields(1)
-      val additionalInfo = ipInfoBroadcast.value.getOrElse(ip, ("Unknown", "Unknown", "Unknown"))
-      val latency = fields(0).toDouble
-      val city = additionalInfo._2
-      val contentSize = fields(fields.length - 1).toLong
-      (ip, additionalInfo, city, latency, fields(4), contentSize)
-    }
-
-    // Enrich logs with additional information
-    val enrichedLogs = filterData.map(enrichLogRecord)
-
-    // Get unique ISPs
-    val uniqueISPs = enrichedLogs.map { case (_, (_, _, isp), _, _, _, _) => isp }.distinct().collect()
-    println(s"Number of unique ISPs: ${uniqueISPs.length}")
-
-    // Get records from Ho Chi Minh City
-    val hcmRecords = enrichedLogs.filter { case (_, (_, city, _), _, _, _, _) => city == "Ho Chi Minh City" }
-    println(s"Number of records from Ho Chi Minh City: ${hcmRecords.count()}")
-
-    // Get traffic from Hanoi
-    val hanoiTraffic = enrichedLogs.filter { case (_, (_, city, _), _, _, _, _) => city == "Hanoi" }
-      .map { case (_, _, _, _, _, contentSize) => contentSize }.reduce(_ + _)
-    println(s"Total traffic from Hanoi: $hanoiTraffic")
-
-    // Get latency statistics
-    val latencies = enrichedLogs.map { case (_, _, _, latency, _, _) => latency }
-    val latenciesVector = latencies.map(latency => Vectors.dense(latency))
-    val latencyStats: MultivariateStatisticalSummary = Statistics.colStats(latenciesVector)
-    println(s"Mean Latency: ${latencyStats.mean(0)}")
-    println(s"Maximum Latency: ${latencyStats.max(0)}")
-    println(s"Minimum Latency: ${latencyStats.min(0)}")
-
-    sc.stop()
-  }
+def filterRecords(line: String): Boolean = {
+  val fields = line.split(" ")
+  fields.length == 7 && fields(0).toDouble >= 0 && fields(6).forall(Character.isDigit) && fields(6).toInt > 0 && fields(2) != "-"
 }
+
+val filterData = data.filter(filterRecords)
+
+val ipInfoData = sc.textFile("test1/IPDict.csv")
+
+val ipInfoMap = ipInfoData.map(line => {
+  val fields = line.split(",")
+  (fields(0), (fields(1), fields(2), fields(3)))
+}).collectAsMap()
+
+val ipInfoBroadcast = sc.broadcast(ipInfoMap)
+
+def classifyHIT(line: String): String = {
+  val contentName = line.split(" ")(2)
+  if (contentName.endsWith("HIT")) "HIT"
+  else if (contentName.endsWith("HIT1")) "HIT1"
+  else "MISS"
+}
+
+val hitData = filterData.map(line => (classifyHIT(line), 1))
+val hitCounts = hitData.reduceByKey(_ + _)
+
+val hitCount = hitCounts.collect().find { case (hitStatus, _) => hitStatus == "HIT" }.map(_._2).getOrElse(0)
+val missCount = hitCounts.collect().find { case (hitStatus, _) => hitStatus == "MISS" }.map(_._2).getOrElse(0)
+val hit1Count = hitCounts.collect().find { case (hitStatus, _) => hitStatus == "HIT1" }.map(_._2).getOrElse(0)
+
+val hitRate = (hitCount + hit1Count).toDouble / (hitCount + hit1Count + missCount).toDouble
+
+println(s"HIT: $hitCount records")
+println(s"HIT1: $hit1Count records")
+println(s"MISS: $missCount records")
+println(s"Hit Rate: $hitRate")
+
+def enrichLogRecord(line: String): (String, (String, String, String), String, Double, String, Long) = {
+  val fields = line.split(" ")
+  val ip = fields(1)
+  val additionalInfo = ipInfoBroadcast.value.getOrElse(ip, ("Unknown", "Unknown", "Unknown"))
+  val latency = fields(0).toDouble
+  val city = additionalInfo._2
+  val contentSize = fields(fields.length - 1).toLong
+  (ip, additionalInfo, city, latency, classifyHIT(line), contentSize)
+}
+
+val enrichedLogs = filterData.map(enrichLogRecord)
+
+val ispHitStatusMap = enrichedLogs.map { case (_, (_, _, isp), _, _, hitStatus, _) => (isp, hitStatus) }
+
+val ispHitStatusCounts = ispHitStatusMap.groupByKey().mapValues(status => (status.count(_ == "HIT"), status.count(_ == "HIT1"), status.count(_ == "MISS")))
+
+println("ISP and Hit Status Counts:")
+ispHitStatusCounts.collect().foreach { case (isp, (hitCount, hit1Count, missCount)) =>
+  println(s"$isp: HIT=$hitCount, HIT1=$hit1Count, MISS=$missCount")
+}
+
+val ispHitRate = ispHitStatusCounts.mapValues { case (hitCount, hit1Count, missCount) =>
+  val totalRequests = hitCount + hit1Count + missCount
+  val hitRate = (hitCount + hit1Count).toDouble / totalRequests.toDouble
+  (hitRate)
+}
+
+println("ISP Hit Rate:")
+ispHitRate.collect().foreach { case (isp, hitRate) =>
+  println(s"$isp: Hit Rate=$hitRate")
+}
+
+val maxHitRate = ispHitRate.values.max
+val ispsWithMaxHitRate = ispHitRate.filter { case (_, hitRate) => hitRate == maxHitRate }.keys
+
+val ispsWithMaxHitRateArr = ispsWithMaxHitRate.collect()
+
+println(s"The ISPs with the maximum hit rate ($maxHitRate) are: ${ispsWithMaxHitRateArr.mkString("\n")}")
