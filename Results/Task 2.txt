@@ -179,19 +179,5 @@ median: Long = 651613
 scala> val medianValue = sortedLate.collect()(median.toInt)
 medianValue: Double = 0.0
 
-scala> val maximumValue = sortedLate.collect()(sortedLate.count().toInt - 1)
-maximumValue: Double = 199.658
-
-scala> val secondMax = sortedLate.collect()(sortedLate.count().toInt - 2)
-secondMax: Double = 119.467
-
-scala>
-
 scala> println(s"Median Latency: $medianValue")
 Median Latency: 0.0
-
-scala> println(s"Maximum Latency: $maximumValue")
-Maximum Latency: 199.658
-
-scala> println(s"Second Maximum Latency: $secondMax")
-Second Maximum Latency: 119.467
