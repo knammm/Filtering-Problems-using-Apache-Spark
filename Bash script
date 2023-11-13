@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Download log file on Google Drive (using wget)
+FILEID="[FILEID]"
+FILENAME="[FILENAME]"
+
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=${FILEID}' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=${FILEID}" -O ${FILENAME} && rm -rf /tmp/cookies.txt
+
+# Working with HDFS
+
+# Create a directory
+hadoop fs -mkdir /user/[user-name]/test1
+
+# Lists the content
+hadoop fs -ls /user/[user-name]/test/
+
+# Copy from local
+hadoop fs -copyFromLocal home/[user-name]/FPT-2018-12-02.log /user/[user-name]/test1/
+
+# Delete a file
+hadoop fs -rm /user/[user-name]/test.txt
+
+# Move file from HDFS to Local
+hadoop fs -moveToLocal /user/[user-name]/test1/test.txt /home/[user-name]/
