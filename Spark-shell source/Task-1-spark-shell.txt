@@ -1,0 +1,36 @@
+Note: Open spark-shell terminal => copy and paste the below
+
+import java.text.SimpleDateFormat
+import java.util.TimeZone
+
+val data = sc.textFile("test1/FPT-2018-12-02.log")
+
+def filterRecords(line: String): Boolean = {
+  val fields = line.split(" ")
+  val criteria = fields.length == 7 &&               // 7 spaces
+    fields(0).toDouble >= 0 &&                       // Latency >= 0
+    fields(6).forall(Character.isDigit) &&           // Content must be a number
+    fields(6).toInt > 0 &&                           // Content size is positive
+    fields(2) != "-"                                 // Hit status is not '-'
+
+  (criteria)
+}
+val filterData = data.filter(filterRecords)
+filterData.count()
+
+def filterRecordsFail(line: String): Boolean = !filterRecords(line)
+val filterFail = data.filter(filterRecordsFail)
+filterFail.count()
+
+def convert(line: String): Long = {
+  val fields = line.split(" ")
+  val inputData = fields(3) + " " + fields(4)
+  val timeFormat = new SimpleDateFormat("[dd/MMM/yyyy:HH:mm:ss z]")
+  timeFormat.setTimeZone(TimeZone.getTimeZone("GMT"))
+  val timeStamp = timeFormat.parse(inputData).getTime()
+
+  timeStamp
+}
+
+filterData.sortBy(convert).take(10).foreach(println)
+filterFail.sortBy(convert).take(10).foreach(println)
