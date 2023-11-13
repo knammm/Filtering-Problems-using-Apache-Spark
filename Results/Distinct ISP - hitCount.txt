@@ -1,0 +1,125 @@
+PJSC Rostelecom: HIT=321, HIT1=0, MISS=0
+China Unicom: HIT=12, HIT1=0, MISS=0
+Verizon Business: HIT=336, HIT1=60, MISS=38
+Chunghwa Telecom: HIT=169, HIT1=0, MISS=1
+ChinaNet: HIT=1, HIT1=0, MISS=0
+Telia Company AB: HIT=390, HIT1=0, MISS=0
+Telenor Norge AS: HIT=271, HIT1=0, MISS=0
+CD-Telematika a.s.: HIT=8, HIT1=0, MISS=0
+RCS & RDS SA: HIT=6, HIT1=0, MISS=0
+Taiwan Mobile Co. Ltd.: HIT=130, HIT1=71, MISS=22
+M1 Limited: HIT=83, HIT1=80, MISS=0
+SFR SA: HIT=71, HIT1=0, MISS=1
+Vodafone Telekomunikasyon A.S.: HIT=0, HIT1=1, MISS=0
+Vodafone Australia Pty Limited: HIT=54, HIT1=30, MISS=0
+Kazan Broad-band access pools: HIT=3, HIT1=0, MISS=0
+CIK Telecom INC: HIT=267, HIT1=31, MISS=14
+Taipei Taiwan: HIT=164, HIT1=0, MISS=0
+Saigon Postel Corporation: HIT=849, HIT1=10, MISS=6
+SWAN a.s.: HIT=76, HIT1=0, MISS=0
+M247 Ltd: HIT=214, HIT1=193, MISS=57
+Vodafone NRW GmbH: HIT=1550, HIT1=51, MISS=216
+"Facebook, Inc.": HIT=24, HIT1=7, MISS=8
+Spark New Zealand Trading Ltd: HIT=506, HIT1=100, MISS=69
+TOKAI Communications Corporation: HIT=87, HIT1=0, MISS=0
+Orange S.A.: HIT=637, HIT1=42, MISS=5
+Vietnam Posts and Telecommunications Group: HIT=267280, HIT1=12596, MISS=29887
+Kddi Corporation: HIT=462, HIT1=0, MISS=102
+Vietnamobile Telecommunications Joint Stock Company: HIT=198, HIT1=121, MISS=270
+Deutsche Telekom AG: HIT=14, HIT1=0, MISS=1
+CTM: HIT=134, HIT1=0, MISS=0
+Robert Bosch GmbH: HIT=15, HIT1=0, MISS=0
+"UPC Ceska Republica, s.r.o.": HIT=249, HIT1=0, MISS=0
+Telstra Internet: HIT=7, HIT1=3, MISS=2
+The Cloud Networks Limited: HIT=2, HIT1=0, MISS=0
+Tele Columbus AG: HIT=9, HIT1=0, MISS=0
+"Telia Lietuva, AB": HIT=1, HIT1=0, MISS=0
+TELEFiA?A1/2NICA BRASIL S.A: HIT=1, HIT1=0, MISS=0
+Opera Software AS: HIT=229, HIT1=0, MISS=0
+Proximus NV: HIT=518, HIT1=69, MISS=68
+Telecommunication Company Of Iran: HIT=0, HIT1=1, MISS=0
+Fiberlink Pvt.Ltd: HIT=3, HIT1=0, MISS=0
+Altibox AS: HIT=146, HIT1=14, MISS=15
+British Telecommunications PLC: HIT=520, HIT1=299, MISS=184
+Amazon Technologies Inc.: HIT=2, HIT1=0, MISS=0
+EWE TEL GmbH: HIT=4, HIT1=0, MISS=2
+China Mobile Communications Corporation: HIT=417, HIT1=125, MISS=563
+Facebook Ireland Ltd: HIT=1, HIT1=0, MISS=0
+Hong Kong Telecommunications Limited Mass Internet: HIT=6, HIT1=0, MISS=0
+Hadara Technologies Private Shareholding Company: HIT=0, HIT1=0, MISS=1
+Shaw Communications Inc.: HIT=363, HIT1=10, MISS=95
+Telia Norge AS: HIT=205, HIT1=0, MISS=0
+Ziggo B.V.: HIT=29, HIT1=0, MISS=0
+StarHub Cable Vision Ltd: HIT=15, HIT1=3, MISS=0
+Vietel - CHT Compamy Ltd: HIT=157, HIT1=0, MISS=0
+Korea Telecom: HIT=523, HIT1=5, MISS=27
+Dacom-pubnetplus: HIT=75, HIT1=49, MISS=149
+"STARNET, s.r.o.": HIT=33, HIT1=0, MISS=0
+Microsoft Corporation: HIT=5, HIT1=5, MISS=11
+SK Broadband Co Ltd: HIT=98, HIT1=11, MISS=2
+FPT Telecom Company: HIT=759820, HIT1=33561, MISS=74455
+WorldStream B.V.: HIT=1034, HIT1=0, MISS=0
+Cox Communications Inc.: HIT=37, HIT1=1, MISS=2
+Taipei City Taiwan: HIT=150, HIT1=8, MISS=183
+SingTel Optus: HIT=398, HIT1=109, MISS=79
+Virgin Media: HIT=712, HIT1=6, MISS=13
+Star Telecom: HIT=610, HIT1=0, MISS=0
+U Mobile Sdn Bhd: HIT=73, HIT1=0, MISS=1
+Charter Communications: HIT=1538, HIT1=10, MISS=38
+TMNST: HIT=409, HIT1=0, MISS=1
+Flashcable Network: HIT=274, HIT1=60, MISS=36
+Iliad Italia S.p.A: HIT=6, HIT1=0, MISS=0
+Bite IP Network: HIT=3, HIT1=0, MISS=0
+Nos Comunicacoes S.a.: HIT=179, HIT1=0, MISS=0
+Videotron Ltee: HIT=843, HIT1=12, MISS=21
+Telenet BVBA: HIT=153, HIT1=0, MISS=0
+Nova hf: HIT=376, HIT1=0, MISS=0
+"Far EasTone Telecommunication Co., Ltd.": HIT=296, HIT1=0, MISS=0
+Telenor Sverige AB: HIT=567, HIT1=0, MISS=0
+Ooo W-internet: HIT=1, HIT1=0, MISS=0
+UPC Austria: HIT=190, HIT1=0, MISS=0
+Taiwan Star Telecom Corporation Limited.(Former Vibo Telecom Inc.): HIT=25, HIT1=0, MISS=0
+NextGenTel AS: HIT=347, HIT1=0, MISS=0
+PT. Telekomunikasi Selular Indonesia: HIT=5, HIT1=0, MISS=1
+AT&T Mobility LLC: HIT=9, HIT1=0, MISS=0
+Amazon.com: HIT=4, HIT1=0, MISS=0
+TekSavvy Solutions Inc.: HIT=0, HIT1=0, MISS=1
+Telefonica del Sur S.A.: HIT=1, HIT1=0, MISS=0
+Bouygues Telecom SA: HIT=5, HIT1=1, MISS=0
+"Joyent, Inc.": HIT=296, HIT1=0, MISS=0
+Maxis Broadband Sdn Bhd: HIT=7, HIT1=0, MISS=0
+Dtpnet Nap: HIT=0, HIT1=0, MISS=1
+SaiGon Tourist Cable Television: HIT=2150, HIT1=290, MISS=1091
+CMC Telecom Infrastructure Company: HIT=860, HIT1=37, MISS=64
+MOBIFONE Corporation: HIT=2995, HIT1=488, MISS=405
+Vodafone Espana S.a.u.: HIT=62, HIT1=0, MISS=0
+"": HIT=805, HIT1=144, MISS=60
+Bell Canada: HIT=1324, HIT1=34, MISS=70
+"PSINet, Inc.": HIT=9, HIT1=0, MISS=0
+Vodafone Limited: HIT=44, HIT1=14, MISS=4
+Viettel Group: HIT=17082, HIT1=2611, MISS=4305
+Free SAS: HIT=378, HIT1=0, MISS=0
+Vodafone GmbH: HIT=1647, HIT1=6, MISS=2
+Bezeq International: HIT=1, HIT1=0, MISS=0
+PT Telkom Indonesia: HIT=0, HIT1=1, MISS=2
+Sky UK Limited: HIT=18, HIT1=0, MISS=0
+Sony Network Communications Inc.: HIT=596, HIT1=0, MISS=0
+Hong Kong Broadband Network Ltd: HIT=4, HIT1=0, MISS=0
+Japan Nation-wide Network of Softbank Corp.: HIT=468, HIT1=0, MISS=1
+"O2 Czech Republic, a.s.": HIT=3, HIT1=0, MISS=0
+NTT Communications Corporation: HIT=608, HIT1=0, MISS=0
+"CenturyLink Communications, LLC": HIT=751, HIT1=24, MISS=58
+"Aliyun Computing Co., LTD": HIT=0, HIT1=0, MISS=1
+Google LLC: HIT=56970, HIT1=3, MISS=4
+"Choopa, LLC": HIT=219, HIT1=101, MISS=625
+"Comcast Cable Communications, LLC": HIT=2987, HIT1=276, MISS=214
+NTT America: HIT=13, HIT1=0, MISS=0
+Optimum Online: HIT=466, HIT1=0, MISS=0
+TPG Internet Pty Ltd.: HIT=0, HIT1=0, MISS=2
+True Internet Corporation Co. Ltd.: HIT=85, HIT1=0, MISS=0
+Advance Wireless Network: HIT=0, HIT1=0, MISS=1
+UPC Schweiz GmbH: HIT=258, HIT1=0, MISS=0
+AT&T Corp.: HIT=55, HIT1=10, MISS=45
+Hanoi Telecom Joint Stock Company - HCMC Branch: HIT=578, HIT1=0, MISS=0
+M-net Telekommunikations GmbH: HIT=2, HIT1=0, MISS=7
+VTC Digicom: HIT=68, HIT1=0, MISS=0

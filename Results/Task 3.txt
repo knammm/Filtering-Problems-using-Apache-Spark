@@ -1,0 +1,72 @@
+HIT: 1137824 records
+HIT1: 51794 records
+MISS: 113609 records
+Hit Rate: 0.9128248570663438
+
+The ISPs with the maximum hit rate (1.0) are: 
+PJSC Rostelecom
+China Unicom
+ChinaNet
+Telia Company AB
+Telenor Norge AS
+CD-Telematika a.s.
+RCS & RDS SA
+M1 Limited
+Vodafone Telekomunikasyon A.S.
+Vodafone Australia Pty Limited
+Kazan Broad-band access pools
+Taipei Taiwan
+SWAN a.s.
+TOKAI Communications Corporation
+CTM
+Robert Bosch GmbH
+"UPC Ceska Republica, s.r.o."
+The Cloud Networks Limited
+Tele Columbus AG
+"Telia Lietuva
+TELEFiA?A1/2NICA BRASIL S.A
+Opera Software AS
+Telecommunication Company Of Iran
+Fiberlink Pvt.Ltd
+Amazon Technologies Inc.
+Facebook Ireland Ltd
+Hong Kong Telecommunications Limited Mass Internet
+Telia Norge AS
+Ziggo B.V.
+StarHub Cable Vision Ltd
+Vietel - CHT Compamy Ltd
+"STARNET, s.r.o."
+WorldStream B.V.
+Star Telecom
+Iliad Italia S.p.A
+Bite IP Network
+Nos Comunicacoes S.a.
+Telenet BVBA
+Nova hf
+"Far EasTone Telecommunication Co., Ltd."
+Telenor Sverige AB
+Ooo W-internet
+UPC Austria
+Taiwan Star Telecom Corporation Limited.(Former Vibo Telecom Inc.)
+NextGenTel AS
+AT&T Mobility LLC
+Amazon.com
+Telefonica del Sur S.A.
+Bouygues Telecom SA
+"Joyent, Inc."
+Maxis Broadband Sdn Bhd
+Vodafone Espana S.a.u.
+"PSINet, Inc."
+Free SAS
+Bezeq International
+Sky UK Limited
+Sony Network Communications Inc.
+Hong Kong Broadband Network Ltd
+"O2 Czech Republic, a.s."
+NTT Communications Corporation
+NTT America
+Optimum Online
+True Internet Corporation Co. Ltd.
+UPC Schweiz GmbH
+Hanoi Telecom Joint Stock Company - HCMC Branch
+VTC Digicom
