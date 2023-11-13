@@ -103,14 +103,6 @@ object LogAnalysis {
 
     println(s"Median Latency: $medianValue")
 
-    // For checking if the list is sorted
-    val maximumValue = sortedLate.collect()(sortedLate.count().toInt - 1)
-    println(s"Maximum Latency (sorted list): $maximumValue")
-
-    // Second Max
-    val secondMax = sortedLate.collect()(sortedLate.count().toInt - 2)
-    println(s"Second Maximum Latency: $secondMax")
-
     sc.stop()
   }
 }
