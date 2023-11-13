@@ -82,9 +82,4 @@ def getLatency(line: Double): Double = line
 val sortedLate = latencies.sortBy(getLatency)
 val median = (sortedLate.count() + 1)/2 - 1
 val medianValue = sortedLate.collect()(median.toInt)
-val maximumValue = sortedLate.collect()(sortedLate.count().toInt - 1)
-val secondMax = sortedLate.collect()(sortedLate.count().toInt - 2)
-
 println(s"Median Latency: $medianValue")
-println(s"Maximum Latency: $maximumValue")
-println(s"Second Maximum Latency: $secondMax")
